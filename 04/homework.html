@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let timeLeft = parseInt(prompt('1~10 사이의 정수를 입력하세요.'));
+
+      let id = setInterval(countDown, 1000);
+
+      function countDown() {
+        console.log(`${timeLeft}초 남았습니다.`);
+        timeLeft--;
+        if (timeLeft === 0) {
+          clearInterval(id);
+        }
+      }
+    </script>
+  </body>
+</html>
