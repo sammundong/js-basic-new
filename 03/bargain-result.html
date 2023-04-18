@@ -12,15 +12,15 @@
       <img src="images/sale.png" />
       <ul>
         <li>
-          <label for="oPrice">n1</label>
-          <input type="text" id="n1" />
+          <label for="oPrice">원래 가격</label>
+          <input type="text" id="oPrice" />원
         </li>
         <li>
-          <label for="rate">n2</label>
-          <input type="text" id="n2" />
+          <label for="rate">할인율</label>
+          <input type="text" id="rate" />%
         </li>
         <li>
-          <button onclick="showPrice()">n1/n2</button>
+          <button onclick="showPrice()">할인 가격 계산하기</button>
         </li>
       </ul>
       <div id="showResult"></div>
@@ -28,25 +28,25 @@
 
     <script>
       function showPrice() {
-        var n1 = document.querySelector('#n1').value; // 원래 가격
-        var n2 = document.querySelector('#n2').value; // 할인율
-        console.log(n1);
-        if (!n1 || !n2) {
-          alert('아무것도 입력이 안되었어요. 입력하세요');
-          return;
-        } else if (isNaN(n1) | isNaN(n2)) {
-          alert('숫자가 입력이 안되었어요. 다시 입력하세요');
-          return;
-        } else if (n2 == 0) {
-          alert('두번째 수가 없습니다. 0보다 큰수를 입력하세요');
-        } else var resultprice = n1 / n2;
+        var originPrice = document.querySelector('#oPrice').value; // 원래 가격
+        var rate = document.querySelector('#rate').value; // 할인율
+        var savedPrice = originPrice * (rate / 100); // 할인 금액
+        var resultPrice = originPrice - savedPrice; // 원래 가격에서 할인 금액을 뺀 최종 가격
         document.querySelector('#showResult').innerHTML =
-          'n1/n2 는' + resultprice + '입니다';
-        if (!n1 || !n2) {
-          alert('아무것도 입력이 안되었어요. 입력하세요');
-          return;
-        }
+          '상품의 원래 가격은 ' +
+          originPrice +
+          '원이고, 할인율은 ' +
+          rate +
+          '%입니다.' +
+          savedPrice +
+          '원을 절약한 ' +
+          resultPrice +
+          '원에 살 수 있습니다.';
+        const arr = [1, 2, 3];
+        arr.push(4, 5);
+        console.log(arr); // [1, 2, 3, 4, 5]
       }
+      // if문 삭제했습니다.
     </script>
   </body>
 </html>

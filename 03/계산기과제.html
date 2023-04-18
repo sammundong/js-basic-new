@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>계산기</title>
+    <link rel="stylesheet" href="css/bargain.css" />
+    <style>
+      ul {
+        list-style: none;
+        padding-top: 40px;
+      }
+      li {
+        display: flex;
+        justify-content: center;
+        margin: 1vh;
+      }
+      .btn {
+        margin-left: 0.5vw;
+        margin-right: 0.5vw;
+      }
+      #showResult {
+        display: flex;
+        justify-content: center;
+        margin: 1vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="contents">
+      <ul>
+        <li>
+          <label for="oPrice">첫번째 수 </label>
+          <input type="text" id="n1" />
+        </li>
+        <li>
+          <label for="rate">두번째 수 </label>
+          <input type="text" id="n2" />
+        </li>
+        <li>
+          <div id="Result"></div>
+          <button class="btn" onclick="plus()">+</button>
+          <button class="btn" onclick="minus()">-</button>
+          <button class="btn" onclick="mul()">*</button>
+          <button class="btn" onclick="di()">/</button>
+          <button class="btn" onclick="na()">%</button>
+          <button class="btn" onclick="cl()">clear</button>
+        </li>
+      </ul>
+      <div id="showResult"></div>
+    </div>
+
+    <script>
+      function plus() {
+        var n1 = document.querySelector('#n1').value; // 원래 가격
+        var n2 = document.querySelector('#n2').value; // 할인율
+
+        document.querySelector(`#Result`).innerHTML = `두수의 합은 ${
+          parseInt(n1) + parseInt(n2)
+        }입니다`;
+      }
+      function minus() {
+        var n1 = document.querySelector('#n1').value; // 원래 가격
+        var n2 = document.querySelector('#n2').value; // 할인율
+
+        document.querySelector(`#Result`).innerHTML = `두수의차는 ${
+          parseInt(n1) - parseInt(n2)
+        }입니다`;
+      }
+      function mul() {
+        var n1 = document.querySelector('#n1').value;
+        var n2 = document.querySelector('#n2').value;
+        document.querySelector('#Result').innerHTML = `두수의 곱은 ${
+          parseInt(n1) * parseInt(n2)
+        } 입니다`;
+      }
+      function di() {
+        var n1 = document.querySelector('#n1').value;
+        var n2 = document.querySelector('#n2').value;
+        document.querySelector('#Result').innerHTML = `두수의 곱은 ${
+          parseInt(n1) / parseInt(n2)
+        } 입니다`;
+      }
+      function na() {
+        var n1 = document.querySelector('#n1').value;
+        var n2 = document.querySelector('#n2').value;
+        document.querySelector('#Result').innerHTML = `두수의 곱은 ${
+          parseInt(n1) % parseInt(n2)
+        } 입니다`;
+      }
+
+      function cl() {
+        document.querySelector('#n1').value = null;
+        document.querySelector('#n2').value = null;
+        document.querySelector('#Result').innerHTML = null;
+      }
+    </script>
+  </body>
+</html>
