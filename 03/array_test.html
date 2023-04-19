@@ -9,15 +9,13 @@
 </head>
 
 <body>
+  <button onclick="alert('click')">인라인</button>
+  <button onclick="btnClick.call(this)">인라인</button>
   <script>
-
-    let array = ["사과", "배", "바나나", 34, 67, true, false];
-    for (let i of array) {
-      console.log(i);
+    function btnClick() {
+      this.style.backgroundColor = 'red'; // 작동안됨
+      alert('click');
     }
-
-    console.log(result); // [4, 10, 18]
-
   </script>
 </body>
 
